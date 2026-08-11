@@ -1,0 +1,224 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(-45deg, #0f172a, #1e3a8a, #0f766e, #020617);
+    background-size: 400% 400%;
+    animation: bgMove 15s ease infinite;
+    overflow: hidden;
+}
+
+@keyframes bgMove {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.container {
+    width: 430px;
+    height: 700px;
+    border-radius: 28px;
+    background: rgba(255, 255, 255, .08);
+    backdrop-filter: blur(18px);
+    border: 1px solid rgba(255, 255, 255, .2);
+    box-shadow: 0 15px 45px rgba(0, 0, 0, .45), inset 0 1px 1px rgba(255, 255, 255, .1);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.container h1 {
+    text-align: center;
+    padding: 22px;
+    color: white;
+    font-size: 28px;
+    letter-spacing: 1px;
+    border-bottom: 1px solid rgba(255, 255, 255, .1);
+    background: rgba(255, 255, 255, .05);
+}
+
+.chat-container {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+
+/* Scrollbar */
+
+.chat-container::-webkit-scrollbar {
+    width: 6px;
+}
+
+.chat-container::-webkit-scrollbar-thumb {
+    background: #4f46e5;
+    border-radius: 20px;
+}
+
+.user,
+.bot {
+    max-width: 80%;
+    padding: 14px 18px;
+    border-radius: 18px;
+    line-height: 1.6;
+    font-size: 15px;
+    animation: fade .3s ease;
+}
+
+@keyframes fade {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* User */
+
+.user {
+    align-self: flex-end;
+    color: white;
+    background: linear-gradient(135deg, #2563eb, #4f46e5);
+    border-bottom-right-radius: 6px;
+    box-shadow: 0 10px 20px rgba(37, 99, 235, .35);
+}
+
+
+/* Bot */
+
+.bot {
+    align-self: flex-start;
+    color: #fff;
+    background: rgba(255, 255, 255, .12);
+    border: 1px solid rgba(255, 255, 255, .08);
+    border-bottom-left-radius: 6px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, .15);
+}
+
+
+/* Bottom Input */
+
+.area {
+    display: flex;
+    gap: 12px;
+    padding: 18px;
+    background: rgba(255, 255, 255, .05);
+    border-top: 1px solid rgba(255, 255, 255, .08);
+}
+
+.area input {
+    flex: 1;
+    padding: 15px 18px;
+    border: none;
+    outline: none;
+    border-radius: 50px;
+    background: rgba(255, 255, 255, .12);
+    color: white;
+    font-size: 15px;
+    transition: .3s;
+}
+
+.area input::placeholder {
+    color: #d4d4d4;
+}
+
+.area input:focus {
+    background: rgba(255, 255, 255, .18);
+    box-shadow: 0 0 15px rgba(99, 102, 241, .4);
+}
+
+.area button {
+    width: 58px;
+    height: 58px;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 22px;
+    color: white;
+    background: linear-gradient(135deg, #4f46e5, #2563eb);
+    transition: .3s;
+    box-shadow: 0 8px 18px rgba(79, 70, 229, .4);
+}
+
+.area button:hover {
+    transform: scale(1.08) rotate(10deg);
+    box-shadow: 0 12px 30px rgba(79, 70, 229, .55);
+}
+
+.area button:active {
+    transform: scale(.95);
+}
+
+
+/* Floating Glow */
+
+body::before {
+    content: "";
+    position: absolute;
+    width: 350px;
+    height: 350px;
+    background: #3b82f6;
+    filter: blur(140px);
+    top: -120px;
+    left: -120px;
+    opacity: .35;
+}
+
+body::after {
+    content: "";
+    position: absolute;
+    width: 350px;
+    height: 350px;
+    background: #8b5cf6;
+    filter: blur(140px);
+    bottom: -120px;
+    right: -120px;
+    opacity: .35;
+}
+
+
+/* Mobile */
+
+@media(max-width:480px) {
+    .container {
+        width: 100%;
+        height: 100vh;
+        border-radius: 0;
+    }
+    .container h1 {
+        font-size: 24px;
+    }
+    .user,
+    .bot {
+        font-size: 14px;
+    }
+    .area {
+        padding: 15px;
+    }
+    .area button {
+        width: 52px;
+        height: 52px;
+    }
+}
