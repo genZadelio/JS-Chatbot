@@ -4,19 +4,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ultimate AI Interface</title>
+    <meta name="description" content="JS Chatbot is an educational browser chat demo. It does not collect credentials or personal information.">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="JS Chatbot — Educational Chat Demo">
+    <meta property="og:description" content="Explore a responsive browser chat interface concept.">
+    <meta property="og:url" content="https://js-chatbot-adelio.netlify.app/">
+    <link rel="canonical" href="https://js-chatbot-adelio.netlify.app/">
+    <title>JS Chatbot — Educational Chat Demo</title>
     <link rel="stylesheet" href="util.css">
 </head>
 
 <body>
+    <div class="demo-banner" role="note">
+        <strong>Educational chat demo</strong>
+        <span>Messages are processed locally in this browser and are never sent to an AI service. No sign-in, API key, or chat-history storage.</span>
+    </div>
+
     <div class="container">
-        <h1>Ultimate Chatbot</h1>
+        <h1>Educational Chatbot Demo</h1>
         <div class="chat-container">
             <div class="user">Hello!</div>
             <div class="bot">Hello! How can I assist you today?</div>
         </div>
         <div class="area">
-            <input type="text" placeholder="Ask Anything">
+            <input type="text" placeholder="Try a sample question" aria-label="Sample chat message">
             <button type="button">→</button>
         </div>
     </div>
